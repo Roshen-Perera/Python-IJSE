@@ -1,5 +1,4 @@
-# from math import pi
-
+# from math import pi1
 
 # list = [1 , 2 , 3 , 4]
 # print(list[2]) 
@@ -137,4 +136,14 @@
 #     return f"{greeting} {name}!"
 
 # print(greet("Roshen"))
+
+class Student:
+    def __init__(self, name):
+        self.name =name
+
+    def display(self):
+        print(self.name)
+
+student = Student("Roshen")
+student.display()
 

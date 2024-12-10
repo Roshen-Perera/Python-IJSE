@@ -17,7 +17,7 @@
 
 # my_tuple = ("apple","banana",30,"mango")
 
-# print(my_tuple[1:3]) # slicing of tuple
+# print(my_tuple[1:3]) # 
 
 # my_tuple_1 = ("apple","banana",30,"mango")
 # print(type(my_tuple_1))
