@@ -377,20 +377,23 @@ import pandas as pd
 # # print(df)
 
 # df['Revenue'] = df["Quantity"]*df["Price"]
-# # print(df)
+# # # print(df)
 
-# # maxRevenue = df.groupby('Name')['Quantity'].idxmax()
-# print(df.idxmax())
+# maxSelling = df[df['Quantity'] == df['Quantity'].max()]
+# print(maxSelling['Product'])
+
+# maxRevenue = df[df['Revenue'] == df['Revenue'].max()] 
+# print(maxRevenue['Product'])
 
 # DataFrame.mean()
 # Returns the mean of the values in the DataFrame.
 
-data = {
-    'Age': [25, 30, 35, 40, 45],
-    'Salary': [50000, 60000, 70000, 80000, 90000]
-}
+# data = {
+#     'Age': [25, 30, 35, 40, 45],
+#     'Salary': [50000, 60000, 70000, 80000, 90000]
+# }
 
-df = pd.DataFrame(data)
+# df = pd.DataFrame(data)
 # print(df.mean()) # Age      35.0 Salary    70000.0 dtype: float64
 
 # DataFrame.sum()
@@ -401,4 +404,47 @@ df = pd.DataFrame(data)
 # DataFrame.describe()
 # Generates descriptive statistics for the DataFrame.
 
-print(df.describe())
+# print(df.describe()) # Generates descriptive statistics for the DataFrame.
+# print(df.describe().loc['std']) # Accessing the standard deviation from the descriptive statistics.
+
+# Filtering Rows
+# You can filter rows of a DataFrame based on a condition.
+# You can use boolean indexing to filter rows based on a condition.
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Emily'],
+    'Age': [25, 30, 35, 40, 45],
+    'Score': [85, 90, 88, 92, 95]
+}
+
+# df = pd.DataFrame(data) # Convert the dictionary into a DataFrame
+# filter_df = df[df['Age']>30] # Filter rows where Age is greater than 30
+# print(filter_df['Name'], type(filter_df))   
+
+# print(df) 
+
+# Adding a row
+# You can add a row to a DataFrame using the loc[] method.
+
+# df = pd.DataFrame({'A': [1, 2], 'B': [3, 4]})
+
+# df.loc[len(df)] = [5, 6] # Add a new row at the end of the DataFrame
+
+# # df.loc[2] = [25, 85] # Add a new row with index 2
+
+# print(df)
+
+# Removing a Column
+
+df = pd.DataFrame(data)
+# df.drop('Age', axis=1) # Remove the 'Age' column
+# print(df)
+
+# Removing a Row
+
+rowDrop = df.drop(4, axis=0) # Remove the row with index 1
+print(rowDrop)
+
+# When inplace = True , the data is modified in place, which means it will return nothing and the dataframe is now updated
+
+print(df.drop(4, axis=0, inplace=True)) # Remove the row with index 4
